@@ -41,8 +41,8 @@ export function displayedRates(expectedFixedRate,expectedRateText,expectedFee, i
 }
 
 export function applyForProduct(productName){
-  //depending on the rates available this would definitely but for the purpose of this test this should suffice.
-  //also a slight pause a bit messy but would handle the animation for the next action.
+  //depending on the rates available this would definitely, for the purpose of this test, suffice.
+  //also a slight pause, a bit messy but would handle the animation for the next action.
   browser.click('.ratesTableWrapper:nth-child(3) tr:nth-child(1) .iconText:nth-child(3)').pause(300);
   browser.click(`[data-productname="${productName}"]`);
 }

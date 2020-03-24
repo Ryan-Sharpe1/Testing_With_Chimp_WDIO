@@ -3,6 +3,7 @@ import * as homePage from '../page_objects/homePage'
 import * as mortgageRatePage from '../page_objects/mortgage-rate-page'
 import * as resultsPage from '../page_objects/results-page'
 import * as mortgageAppPage from '../page_objects/mortgageApplication-page'
+
 module.exports = function () {
 
 
@@ -28,7 +29,7 @@ module.exports = function () {
   });
 
 
-  this.When(/^I poopulate the follwing fields with values:$/, function (table) {
+  this.When(/^I populate the following fields with values:$/, function (table) {
     var newdata = table.raw();
     return newdata.map(function (value) {
       mortgageRatePage.populateMortgageSearchCriteria(value[0], value[1]);

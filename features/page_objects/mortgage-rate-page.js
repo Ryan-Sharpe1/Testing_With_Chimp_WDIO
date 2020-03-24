@@ -10,12 +10,10 @@ export const locators =
     'find a mortgage rate':'#myButton'
   }
 
-
 export function clickElement(selector) {
   browser.click(locators[selector]);
 }
 
 export function populateMortgageSearchCriteria(selector, val) {
   browser.element(locators[selector]).setValue(val);
-
 }
