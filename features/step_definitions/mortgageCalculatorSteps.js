@@ -5,6 +5,8 @@ import * as morgCalc2 from '../page_objects/mortgageCalcPage2'
 import * as morgCalc3 from '../page_objects/mortgageCalcPage3'
 import * as morgCalc4 from '../page_objects/mortgageCalcPage4'
 import * as morgCalc5 from '../page_objects/mortgageCalcPage5'
+import * as morgCalc6 from '../page_objects/mortgageCalcPage6'
+import * as morgCalc7 from '../page_objects/mortgageCalcPage7'
 
 module.exports = function () {
 
@@ -232,5 +234,46 @@ module.exports = function () {
         
         morgCalc5.clickNext(nextStep5)
       });
+
+      this.When(/^the following annual payments are input:$/, function (table) {
+    
+        var data = table.raw()
+
+        data.map(function(value){
+          morgCalc6.sendVal(value[0], value[1]);
+        })
+    
+        
+      });
+    
+      this.Then(/^the correct information regarding other mortgages is entered:$/, function (table) {
+        
+        var data = table.raw();
+
+        data.map(function(value){
+          morgCalc6.clickButt(value[0])
+        })
+      });
+
+      this.Then(/^I can progress to "([^"]*)"$/, function (nextStep6) {
+
+        morgCalc6.clickButt(nextStep6);
+      })
+
+      this.Given(/^all previous steps are completed as follows:$/, function (table) {
+        var data = table.raw();
+
+        data.map(function(value){
+          morgCalc7.checkText(value[0],value[1]);
+        })
+      });
+
+      // this.Then(/^the customer is able to borrow "([^"]*)" over "([^"]*)"$/, function (amount, length) {
+      //   morgCalc7.checkAmount(amount, length)
+      // });
+
+      // this.Then(/^the minimum term should be "([^"]*)" over "([^"]*)"$/, function (amount, length) {
+      //  morgCalc7.checkAmount2(amount, length)
+      // });
 
 }
