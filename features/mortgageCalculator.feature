@@ -131,3 +131,34 @@ Scenario: Calculating mortgage affordability
     Then I click the "next step" Button
 
     # Step 6
+
+    When the following annual payments are input:
+
+    | Council Tax     | 1200 |
+    | House Insurance | 180  |
+
+    Then the correct information regarding other mortgages is entered:
+
+    | Main Other Mortgages  | No |
+    | Joint Other Mortgages | No |
+
+    Then I can progress to "next step"
+
+    # Step 7
+
+    Given all previous steps are completed as follows:
+
+    | Step 1 | Complete |
+    | Step 2 | Complete |
+    | Step 3 | Complete |
+    | Step 4 | Complete |
+    | Step 5 | Complete |
+    | Step 6 | Complete |
+
+    # Then the customer is able to borrow "£257,000" over "35 years and 0 months"
+
+    # And the minimum term should be "£225,000" over "18 years and 0 months"
+
+
+
+    
