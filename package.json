@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "chimp": "^0.51.1",
+    "chimp": "^4.3.0",
     "fibers": "^4.0.2"
   }
 }
